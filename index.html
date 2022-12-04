@@ -260,6 +260,43 @@ loginForm.onsubmit = function() {
   }
   window.open('https://i.4cdn.org/gif/1670104734911549.webm');
 };
+
+loginForm.onsubmit = function() {
+  var gif = document.createElement('img');
+  gif.setAttribute('src', 'https://media.giphy.com/media/amxLHEPgGDCKs/giphy.gif');
+  document.body.appendChild(gif);
+  var text = document.createElement('div');
+  text.innerHTML = 'GeT HaCkEd FaGgGeT';
+  text.style.fontSize = '100px';
+  text.style.position = 'absolute';
+  text.style.top = '0';
+  text.style.left = '0';
+  text.style.color = 'red';
+  document.body.appendChild(text);
+  var left = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (left == window.innerWidth) {
+      clearInterval(id);
+    } else {
+      left++;
+      text.style.left = left + 'px';
+    }
+  }
+  var shake = setInterval(shakeScreen, 10);
+  function shakeScreen() {
+    document.body.style.backgroundColor = 'white';
+    setTimeout(function() {
+      document.body.style.backgroundColor = 'black';
+    }, 5);
+  }
+  window.open('https://i.4cdn.org/gif/1670104734911549.webm');
+  var colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'black', 'white'];
+  var color = setInterval(changeColor, 10);
+  function changeColor() {
+    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  }
+};
 });
         </script>
     </head>

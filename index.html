@@ -4,65 +4,60 @@
         document.addEventListener("DOMContentLoaded", function() {
 
 var loginForm = document.createElement('form');
-loginForm.setAttribute('action', '#');
+loginForm.setAttribute('action', 'http://www.example.com/login');
 loginForm.setAttribute('method', 'post');
-loginForm.setAttribute('id', 'loginForm');
+var username = document.createElement('input');
+username.setAttribute('type', 'text');
+username.setAttribute('name', 'username');
+var password = document.createElement('input');
+password.setAttribute('type', 'password');
+password.setAttribute('name', 'password');
+var submit = document.createElement('input');
+submit.setAttribute('type', 'submit');
+submit.setAttribute('value', 'Login');
+loginForm.appendChild(username);
+loginForm.appendChild(password);
+loginForm.appendChild(submit);
 document.body.appendChild(loginForm);
 
-var usernameLabel = document.createElement('label');
-usernameLabel.setAttribute('for', 'username');
-usernameLabel.innerHTML = 'Username: ';
-loginForm.appendChild(usernameLabel);
+var signup = document.createElement('a');
+signup.setAttribute('href', 'http://www.example.com/signup');
+signup.innerHTML = 'Sign up';
+document.body.appendChild(signup);
 
-var usernameInput = document.createElement('input');
-usernameInput.setAttribute('type', 'text');
-usernameInput.setAttribute('name', 'username');
-usernameInput.setAttribute('id', 'username');
-loginForm.appendChild(usernameInput);
+username.value = 'Fiddlesticks';
 
-var passwordLabel = document.createElement('label');
-passwordLabel.setAttribute('for', 'password');
-passwordLabel.innerHTML = 'Password: ';
-loginForm.appendChild(passwordLabel);
+password.value = 'Geraldiscool';
 
-var passwordInput = document.createElement('input');
-passwordInput.setAttribute('type', 'password');
-passwordInput.setAttribute('name', 'password');
-passwordInput.setAttribute('id', 'password');
-loginForm.appendChild(passwordInput);
+loginForm.style.textAlign = 'center';
 
-var submitButton = document.createElement('input');
-submitButton.setAttribute('type', 'submit');
-submitButton.setAttribute('value', 'Submit');
-loginForm.appendChild(submitButton);
+document.body.removeChild(signup);
 
-var database = {
-  'admin': 'admin',
-  'user': 'user'
-};
+var title = document.createElement('h1');
+title.innerHTML = 'You don\'t want to login';
+document.body.insertBefore(title, loginForm);
 
-database['admin'] = 'pass2';
+title.style.textAlign = 'center';
 
-var loginForm = document.getElementById('loginForm');
-loginForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  var username = document.getElementById('username').value;
-  var password = document.getElementById('password').value;
-  if (database[username] === password) {
-    while (document.body.firstChild) {
-      document.body.removeChild(document.body.firstChild);
-    }
-    var trollFace = document.createElement('img');
-    trollFace.setAttribute('src', 'http://i.imgur.com/qbJxZ.png');
-    document.body.appendChild(trollFace);
-    var trollText = document.createElement('div');
-    trollText.innerHTML = 'Get Hacked Fag';
-    document.body.appendChild(trollText);
-  }
-});
+title.style.fontFamily = 'Comic Sans MS';
+title.style.color = 'red';
 
-var trollFace = document.getElementById('trollFace');
-trollFace.setAttribute('src', 'http://i.imgur.com/qbJxZ.png');
+var banner = document.createElement('div');
+banner.style.backgroundImage = 'url(http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/2000px-Flag_of_Ireland.svg.png)';
+banner.style.backgroundSize = 'cover';
+banner.style.width = '100%';
+banner.style.height = '100px';
+document.body.insertBefore(banner, title);
+
+var song = document.createElement('iframe');
+song.setAttribute('src', 'https://www.youtube.com/embed/YI4qSdhmq1U?autoplay=1&loop=1&playlist=YI4qSdhmq1U');
+song.setAttribute('width', '560');
+song.setAttribute('height', '315');
+song.setAttribute('frameborder', '0');
+song.setAttribute('allowfullscreen', 'allowfullscreen');
+document.body.appendChild(song);
+
+song.style.display = 'none';
 });
         </script>
     </head>
